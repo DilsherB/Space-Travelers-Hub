@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 const Missions = () => {
   const missions = useSelector((state) => state.missions.missionsArr);
-  console.log(missions);
   return (
     <div>
       <h1>Missions</h1>
