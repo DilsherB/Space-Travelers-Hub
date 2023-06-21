@@ -1,18 +1,36 @@
-import { createSlice } from "@reduxjs/toolkit";
-import fetchMissions from "./missionsAPI";
+import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 
-const initialState = {
-  missionsArr: [],
-  status: null,
-};
-export const MissionsSlice = createSlice({
+const URL = "https://api.spacexdata.com/v3/missions";
+
+export const fetchMissions = createAsyncThunk(
+  "missions/fetchMissions",
+  async () => {
+    const response = await axios.get(URL);
+    return response.data;
+  }
+);
+
+export const missionsSlice = createSlice({
   name: "missions",
-  initialState,
+  initialState: {
+    missions: [],
+    isLoading: true,
+  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchMissions.fulfilled, (state, action) => {
-      state.missionsArr = action.payload;
-    });
+    builder
+      .addCase(fetchMissions.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchMissions.fulfilled, (state, { payload }) => {
+        state.missions = payload;
+        state.isLoading = false;
+      })
+      .addCase(fetchMissions.rejected, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 
-export default MissionsSlice.reducer;
+export default missionsSlice.reducer;

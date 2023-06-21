@@ -1,19 +1,58 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { fetchMissions } from "../redux/missions/missionsSlice";
 
 const Missions = () => {
-  const missions = useSelector((state) => state.missions.missionsArr);
+  const dispatch = useDispatch();
+  const missions = useSelector((state) => state.missions.missions);
+  const isLoading = useSelector((state) => state.missions.isLoading);
+
+  useEffect(() => {
+    dispatch(fetchMissions());
+  }, [dispatch]);
+
   return (
-    <div>
-      <h1>Missions</h1>
-      {missions.map((mission) => {
-        return (
-          <div key={mission.mission_id}>
-            <h2>{mission.mission_name}</h2>
-            <p>{mission.description}</p>
-          </div>
-        );
-      })}
+    <div className="container mt-3">
+      {isLoading ? (
+        <h3>Loading...</h3>
+      ) : (
+        <table className="table table-bordered">
+          <thead>
+            <tr>
+              <th>Mission</th>
+              <th>Description</th>
+              <th>Status</th>
+              <th> </th>
+            </tr>
+          </thead>
+          <tbody>
+            {missions.map((mission) => (
+              <tr key={mission.mission_id}>
+                <td>{mission.mission_name}</td>
+                <td>{mission.description}</td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn btn-primary btn-sm"
+                    style={{ minWidth: "max-content" }}
+                  >
+                    Active Member
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    className="btn btn-outline-secondary btn-sm"
+                    style={{ minWidth: "max-content" }}
+                  >
+                    Active Member
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 };
