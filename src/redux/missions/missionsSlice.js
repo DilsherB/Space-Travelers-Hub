@@ -16,6 +16,7 @@ export const missionsSlice = createSlice({
   initialState: {
     missions: [],
     isLoading: true,
+    error: "something went wrong",
   },
   reducers: {},
   extraReducers: (builder) => {
@@ -26,9 +27,11 @@ export const missionsSlice = createSlice({
       .addCase(fetchMissions.fulfilled, (state, { payload }) => {
         state.missions = payload;
         state.isLoading = false;
+        state.error = false;
       })
       .addCase(fetchMissions.rejected, (state) => {
         state.isLoading = false;
+        state.error = true;
       });
   },
 });

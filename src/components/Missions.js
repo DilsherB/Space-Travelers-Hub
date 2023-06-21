@@ -6,6 +6,7 @@ const Missions = () => {
   const dispatch = useDispatch();
   const missions = useSelector((state) => state.missions.missions);
   const isLoading = useSelector((state) => state.missions.isLoading);
+  const error = useSelector((state) => state.missions.error);
 
   useEffect(() => {
     dispatch(fetchMissions());
@@ -13,9 +14,23 @@ const Missions = () => {
 
   return (
     <div className="container mt-3">
-      {isLoading ? (
-        <h3>Loading...</h3>
-      ) : (
+      {isLoading && (
+        <h3
+          className="rounded d-flex justify-content-center align-items-center"
+          style={{ height: "80vh" }}
+        >
+          Loading...
+        </h3>
+      )}
+      {error && (
+        <h2
+          className="text-danger rounded d-flex justify-content-center align-items-center"
+          style={{ height: "80vh" }}
+        >
+          something went wrong
+        </h2>
+      )}
+      {!(isLoading && error) && (
         <table className="table table-bordered">
           <thead>
             <tr>
@@ -52,7 +67,7 @@ const Missions = () => {
             ))}
           </tbody>
         </table>
-      )}
+      )}{" "}
     </div>
   );
 };
