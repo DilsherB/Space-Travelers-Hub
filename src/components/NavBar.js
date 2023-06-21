@@ -8,16 +8,16 @@ import logo from "../assets/planet.png";
 // Navbar component
 const NaviGationbar = () => {
   const menuItems = {
-    rocket: "Rockets",
-    missions: "Missions",
-    myProfile: "My Profile",
+    rocket: "rocket",
+    missions: "missions",
+    myProfile: "myProfile",
   };
   return (
     <Navbar
       collapseOnSelect
       expand="lg"
       className="bg-body-tertiary bg-primary"
-      style={{ boxShadow: '0 1px 3px grey' }}
+      style={{ boxShadow: "0 1px 3px grey" }}
     >
       <Container className="">
         <Navbar.Brand href="#home">
@@ -31,34 +31,36 @@ const NaviGationbar = () => {
               {Object.keys(menuItems).map((item, index) => (
                 <li key={item} className="list-group-item">
                   <NavLink
-                    to={`${item}`}
+                    to={menuItems[item] === "rocket" ? "/" : menuItems[item]}
                     className="text-decoration-none d-flex"
+                    style={({ isActive }) => {
+                      if (isActive) {
+                        return index === 1
+                          ? {
+                            borderRight: "2px solid grey",
+                            borderLeft: "2px solid grey",
+                            padding: "0 5px",
+                            color: "grey",
+                          }
+                          : {
+                            padding: "0 5px",
+                            color: "grey",
+                          };
+                      }
+                      return index === 1
+                        ? {
+                          borderRight: "2px solid grey",
+                          borderLeft: "2px solid grey",
+                          padding: "0 5px",
+                          color: "black",
+                        }
+                        : {
+                          padding: "0 5px",
+                          color: "black",
+                        };
+                    }}
                   >
-                    {index === 1 ? (
-                      <>
-                        <hr
-                          style={{
-                            width: 2,
-                            height: 15,
-                            border: "solid 1px black",
-                          }}
-                        />
-                        <Nav.Link href="#deets" className="text-dark">
-                          {menuItems[item]}
-                        </Nav.Link>
-                        <hr
-                          style={{
-                            width: 2,
-                            height: 15,
-                            border: "1px solid black",
-                          }}
-                        />
-                      </>
-                    ) : (
-                      <Nav.Link href="#deets" className="text-dark">
-                        {menuItems[item]}
-                      </Nav.Link>
-                    )}
+                    {menuItems[item]}
                   </NavLink>
                 </li>
               ))}
