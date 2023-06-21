@@ -3,11 +3,13 @@ import {
   Route,
   createBrowserRouter,
   createRoutesFromElements,
-  RouterProvider
+  RouterProvider,
 } from "react-router-dom";
 import Layout from "./routes/Layout";
 import Rockets from "./routes/Rockets";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import Missions from "./components/Missions";
+import MyProfile from "./components/MyProfile";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -17,9 +19,7 @@ const router = createBrowserRouter(
   )
 );
 function App() {
-  return (
-    <RouterProvider router={router} />
-  );
+  return <RouterProvider router={router} />;
 }
 
 export default App;
