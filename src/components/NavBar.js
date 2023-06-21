@@ -21,7 +21,7 @@ const NaviGationbar = () => {
     >
       <Container className="">
         <Navbar.Brand href="#home">
-          <Image width={60} src={logo} />{" "}
+          <Image width={40} src={logo} />{" "}
           <span style={{}}>Space Travelers&apos; Hub</span>
         </Navbar.Brand>
         <div>
