@@ -9,7 +9,7 @@ const Rockets = () => {
 
   useEffect(() => {
     if (!rockets.length) dispatch(fetchData());
-  }, [dispatch]);
+  });
 
   return (
     <div>

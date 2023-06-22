@@ -9,7 +9,7 @@ import { Provider } from "react-redux";
 import Layout from "./routes/Layout";
 import Rockets from "./routes/Rockets";
 import Missions from "./components/Missions";
-import MyProfile from "./components/MyProfile";
+import MyProfile from "./routes/MyProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
 import store from "./redux/store";
 
