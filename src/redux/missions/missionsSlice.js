@@ -35,7 +35,13 @@ export const missionsSlice = createSlice({
         state.isLoading = true;
       })
       .addCase(fetchMissions.fulfilled, (state, { payload }) => {
-        state.missions = payload;
+        const data = payload.map((mission) => ({
+          id: mission.mission_id,
+          name: mission.mission_name,
+          description: mission.description,
+          reserved: false,
+        }));
+        state.missions = data;
         state.isLoading = false;
         state.error = false;
       })
@@ -45,5 +51,7 @@ export const missionsSlice = createSlice({
       });
   },
 });
+
+export const { join, leave } = missionsSlice.actions;
 
 export default missionsSlice.reducer;

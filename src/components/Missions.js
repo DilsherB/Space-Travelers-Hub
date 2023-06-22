@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import fetchMissions from "../redux/missions/missionsAPI";
+import { join, leave } from "../redux/missions/missionsSlice";
 
 const Missions = () => {
   const dispatch = useDispatch();
@@ -8,14 +9,11 @@ const Missions = () => {
   const isLoading = useSelector((state) => state.missions.isLoading);
   const error = useSelector((state) => state.missions.error);
 
-  const [member, setMember] = useState(false);
-  const [missionbtn, setMissionbtn] = useState(true);
-
-  const handleMember = () => {
-    setMember(!member);
+  const handleJoin = (id) => {
+    dispatch(join({ id }));
   };
-  const handleMission = () => {
-    setMissionbtn(!missionbtn);
+  const handleLeave = (id) => {
+    dispatch(leave({ id }));
   };
 
   useEffect(() => {
@@ -59,26 +57,29 @@ const Missions = () => {
                   <button
                     type="button"
                     className={`btn btn-sm rounded-pill ${
-                      member ? "btn-info" : "btn-secondary"
+                      mission.reserved ? "btn-info" : "btn-secondary"
                     }`}
                     style={{ minWidth: "max-content" }}
-                    onClick={handleMember}
                   >
-                    {member ? "Active Member" : "Not A Member"}
+                    {mission.reserved ? "Active Member" : "Not A Member"}
                   </button>
                 </td>
                 <td style={{ verticalAlign: "middle" }}>
                   <button
                     type="button"
                     className={`btn btn-sm ${
-                      missionbtn
+                      !mission.reserved
                         ? "btn-outline-secondary"
                         : "btn-outline-danger"
                     }`}
                     style={{ minWidth: "max-content" }}
-                    onClick={handleMission}
+                    onClick={
+                      !mission.reserved
+                        ? () => handleJoin(mission.id)
+                        : () => handleLeave(mission.id)
+                    }
                   >
-                    {missionbtn ? "Join Mission" : "Leave Mission"}
+                    {mission.reserved ? "Leave Mission" : "Join Mission"}
                   </button>
                 </td>
               </tr>
