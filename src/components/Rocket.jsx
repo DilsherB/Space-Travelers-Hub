@@ -17,10 +17,10 @@ const Rocket = ({ rocket }) => {
 
   return (
     <div className={`${styles["rocket-container"]} row mt-3`}>
-      <div className={`${styles["image-container"]}  col-12 col-md-4`}>
+      <div className={`${styles["image-container"]}  col-12 col-md-3`}>
         <Image className={styles.image} src={rocket.flickr_images} />
       </div>
-      <div className="col col-12 col-md-8">
+      <div className="col col-12 col-md-9">
         <h3 className={styles.title}>{rocket.name}</h3>
         <p className={styles.description}>
           {rocket.reserved ? <Badge bg="info">Reserved</Badge> : ""}
