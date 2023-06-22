@@ -16,7 +16,7 @@ const MyProfile = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     if (!missions.length) dispatch(fetchMissions());
-    if (!missions.length) dispatch(fetchRockets());
+    if (!rockects.length) dispatch(fetchRockets());
   });
   return (
     <div className="row">
