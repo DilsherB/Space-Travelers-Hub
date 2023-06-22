@@ -1,18 +1,29 @@
 import { createSlice } from "@reduxjs/toolkit";
 import fetchMissions from "./missionsAPI";
 
-const initialState = {
-  missionsArr: [],
-  status: null,
-};
-export const MissionsSlice = createSlice({
+export const missionsSlice = createSlice({
   name: "missions",
-  initialState,
+  initialState: {
+    missions: [],
+    isLoading: true,
+    error: "something went wrong",
+  },
+  reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchMissions.fulfilled, (state, action) => {
-      state.missionsArr = action.payload;
-    });
+    builder
+      .addCase(fetchMissions.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchMissions.fulfilled, (state, { payload }) => {
+        state.missions = payload;
+        state.isLoading = false;
+        state.error = false;
+      })
+      .addCase(fetchMissions.rejected, (state) => {
+        state.isLoading = false;
+        state.error = true;
+      });
   },
 });
 
-export default MissionsSlice.reducer;
+export default missionsSlice.reducer;
