@@ -3,9 +3,6 @@ import { ListGroup } from "react-bootstrap";
 import PropTypes from "prop-types";
 
 const ProfileItem = ({ items, title }) => {
-  console.log('====================================');
-  console.log(items);
-  console.log('====================================');
   return (
     <div className="col">
       <h2>{title}</h2>
