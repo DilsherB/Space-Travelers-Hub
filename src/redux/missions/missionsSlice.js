@@ -12,7 +12,7 @@ export const missionsSlice = createSlice({
     join: (state, { payload }) => {
       const newData = state.missions.map((mission) => {
         if (mission.id === payload.id) {
-          return { ...mission, reserved: true };
+          return { ...mission, joined: true };
         }
         return mission;
       });
@@ -22,7 +22,7 @@ export const missionsSlice = createSlice({
     leave: (state, { payload }) => {
       const newData = state.missions.map((mission) => {
         if (mission.id === payload.id) {
-          return { ...mission, reserved: false };
+          return { ...mission, joined: false };
         }
         return mission;
       });

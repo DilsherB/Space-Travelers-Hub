@@ -17,7 +17,7 @@ const Missions = () => {
   };
 
   useEffect(() => {
-    dispatch(fetchMissions());
+    if (!missions.length) dispatch(fetchMissions());
   }, [dispatch]);
 
   return (
@@ -57,29 +57,29 @@ const Missions = () => {
                   <button
                     type="button"
                     className={`btn btn-sm rounded-pill ${
-                      mission.reserved ? "btn-info" : "btn-secondary"
+                      mission.joined ? "btn-info" : "btn-secondary"
                     }`}
                     style={{ minWidth: "max-content" }}
                   >
-                    {mission.reserved ? "Active Member" : "Not A Member"}
+                    {mission.joined ? "Active Member" : "Not A Member"}
                   </button>
                 </td>
                 <td style={{ verticalAlign: "middle" }}>
                   <button
                     type="button"
                     className={`btn btn-sm ${
-                      !mission.reserved
+                      !mission.joined
                         ? "btn-outline-secondary"
                         : "btn-outline-danger"
                     }`}
                     style={{ minWidth: "max-content" }}
                     onClick={
-                      !mission.reserved
+                      !mission.joined
                         ? () => handleJoin(mission.id)
                         : () => handleLeave(mission.id)
                     }
                   >
-                    {mission.reserved ? "Leave Mission" : "Join Mission"}
+                    {mission.joined ? "Leave Mission" : "Join Mission"}
                   </button>
                 </td>
               </tr>
