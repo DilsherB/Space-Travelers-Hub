@@ -18,7 +18,7 @@ const Missions = () => {
 
   useEffect(() => {
     if (!missions.length) dispatch(fetchMissions());
-  }, [dispatch]);
+  });
 
   return (
     <div className="container mt-3">
@@ -39,7 +39,7 @@ const Missions = () => {
         </h2>
       )}
       {!(isLoading && error) && (
-        <table className="table table-bordered">
+        <table className="table table-bordered table-striped">
           <thead>
             <tr>
               <th>Mission</th>
