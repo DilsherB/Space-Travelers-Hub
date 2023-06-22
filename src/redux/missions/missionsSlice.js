@@ -8,7 +8,27 @@ export const missionsSlice = createSlice({
     isLoading: true,
     error: "something went wrong",
   },
-  reducers: {},
+  reducers: {
+    join: (state, { payload }) => {
+      const newData = state.missions.map((mission) => {
+        if (mission.id === payload.id) {
+          return { ...mission, reserved: true };
+        }
+        return mission;
+      });
+
+      state.missions = newData;
+    },
+    leave: (state, { payload }) => {
+      const newData = state.missions.map((mission) => {
+        if (mission.id === payload.id) {
+          return { ...mission, reserved: false };
+        }
+        return mission;
+      });
+      state.missions = newData;
+    },
+  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchMissions.pending, (state) => {

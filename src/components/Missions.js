@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import fetchMissions from "../redux/missions/missionsAPI";
 
 const Missions = () => {
@@ -7,6 +7,16 @@ const Missions = () => {
   const missions = useSelector((state) => state.missions.missions);
   const isLoading = useSelector((state) => state.missions.isLoading);
   const error = useSelector((state) => state.missions.error);
+
+  const [member, setMember] = useState(false);
+  const [missionbtn, setMissionbtn] = useState(true);
+
+  const handleMember = () => {
+    setMember(!member);
+  };
+  const handleMission = () => {
+    setMissionbtn(!missionbtn);
+  };
 
   useEffect(() => {
     dispatch(fetchMissions());
@@ -43,24 +53,32 @@ const Missions = () => {
           <tbody>
             {missions.map((mission) => (
               <tr key={mission.mission_id}>
-                <td>{mission.mission_name}</td>
-                <td>{mission.description}</td>
-                <td>
+                <td className="fw-bold">{mission.mission_name}</td>
+                <td style={{ fontSize: "14px" }}>{mission.description}</td>
+                <td style={{ verticalAlign: "middle" }}>
                   <button
                     type="button"
-                    className="btn btn-primary btn-sm"
+                    className={`btn btn-sm rounded-pill ${
+                      member ? "btn-info" : "btn-secondary"
+                    }`}
                     style={{ minWidth: "max-content" }}
+                    onClick={handleMember}
                   >
-                    Active Member
+                    {member ? "Active Member" : "Not A Member"}
                   </button>
                 </td>
-                <td>
+                <td style={{ verticalAlign: "middle" }}>
                   <button
                     type="button"
-                    className="btn btn-outline-secondary btn-sm"
+                    className={`btn btn-sm ${
+                      missionbtn
+                        ? "btn-outline-secondary"
+                        : "btn-outline-danger"
+                    }`}
                     style={{ minWidth: "max-content" }}
+                    onClick={handleMission}
                   >
-                    Active Member
+                    {missionbtn ? "Join Mission" : "Leave Mission"}
                   </button>
                 </td>
               </tr>
