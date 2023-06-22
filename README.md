@@ -23,9 +23,9 @@
   - [🙏 Acknowledgments ](#-acknowledgments-)
   - [📝 License ](#-license-)
 
-# 📖 Bookstore<a name="about-project"></a>
+# 📖 Space Travelors' Hub<a name="about-project"></a>
 
-A Book management application that allows users to store, add, delete a book, and read and update book reading state.
+Space Travelors' Hub is an application that allows users to see data from API, reserve rocket, cancel reservation, join mission, leave mission and see the profile.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -34,15 +34,14 @@ A Book management application that allows users to store, add, delete a book, an
 - Reactjs
 - CSS
 - Redux
+- BootStrap
 
 ### Key Features <a name="key-features"></a>
 
-- [ ] **Add Book**
-- [ ] **Remove Book**
-- [ ] **Update reading page**
-- [ ] **Edit a book**
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+- [ ] **Reserve Rocket**
+- [ ] **Cancel Reservation**
+- [ ] **Join Mission**
+- [ ] **Leave Mission**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -64,7 +63,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd my-folder
-  git clone https://github.com/mahamadou-nouridine/bookstore.git
+  git clone https://github.com/DilsherB/Space-Travelers-Hub.git
   npm install
 ```
 
@@ -81,21 +80,27 @@ To run the project, execute the following command:
 To run tests, run the following commands:
 
 ```sh
-  npx stylelint "**/*.{css,scss}"
+  npm run stylelint
   npx hint .
-  npx eslint .
+  npm run eslint .
   npm run test
 ```
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 👥 Author(s) <a name="authors"></a>
+## 👥 Authors <a name="authors"></a>
 
 👤 **Mahamadou Nouridine**
 
 - GitHub: [mahamadou-nouridine](https://github.com/mahamadou-nouridine)
 - Linkedin: [mahamadou-nouridine-mamoudou-souley-2b424a1a5](https://www.linkedin.com/in/mahamadou-nouridine-mamoudou-souley-2b424a1a5)
 - Twitter: [Nouridine_Dino](https://twitter.com/Nouridine_Dino)
+
+👤 **Dilsher Balouch**
+
+- GitHub: [@DilsherB](https://github.com/DilsherB)
+- Twitter: [@\_brilliantMindz](https://www.linkedin.com/in/dilsher-balouch/)
+- LinkedIn: [brilliantmindz](https://www.linkedin.com/in/brilliantmindz/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -109,7 +114,7 @@ To run tests, run the following commands:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](https://github.com/Mahamadou-Nouridine/bookstore/issues).
+Feel free to check the [issues page](https://github.com/DilsherB/Space-Travelers-Hub/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -121,7 +126,7 @@ If you like this project give me a follow and/or a star
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-I would like to thank all my coding partners at Microverse
+We would like to thank all my coding partners at Microverse
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
