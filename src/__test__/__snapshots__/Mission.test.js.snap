@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Missions components renders correctly 1`] = `
+<div>
+  <div
+    class="container mt-3"
+  >
+    <h3
+      class="rounded d-flex justify-content-center align-items-center"
+      style="height: 80vh;"
+    >
+      Loading...
+    </h3>
+    <h2
+      class="text-danger rounded d-flex justify-content-center align-items-center"
+      style="height: 80vh;"
+    >
+      something went wrong
+    </h2>
+     
+  </div>
+</div>
+`;
