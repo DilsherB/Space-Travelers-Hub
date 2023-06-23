@@ -1,0 +1,21 @@
+.rocket-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.description {
+  font-size: 14px;
+}
+
+.title {
+  font-size: large;
+}
+
+.button {
+  font-size: smaller;
+}

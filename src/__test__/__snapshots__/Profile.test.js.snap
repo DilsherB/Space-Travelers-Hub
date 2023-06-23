@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Profile components renders correctly 1`] = `
+<div>
+  <div
+    class="row"
+  >
+    <div
+      class="col"
+    >
+      <h2>
+        Mission
+      </h2>
+      <div
+        class="list-group"
+      >
+        <div
+          class="list-group-item"
+        >
+          No reservation
+        </div>
+      </div>
+    </div>
+    <div
+      class="col"
+    >
+      <h2>
+        Rockets
+      </h2>
+      <div
+        class="list-group"
+      >
+        <div
+          class="list-group-item"
+        >
+          No reservation
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
