@@ -1,0 +1,25 @@
+.active {
+  text-decoration: underline grey;
+  padding: 0 5px;
+  color: black;
+}
+
+.active-center {
+  border-right: 2px solid grey;
+  border-left: 2px solid grey;
+  padding: 0 5px;
+  text-decoration: underline grey;
+  color: black;
+}
+
+.not-active-center {
+  border-right: 2px solid grey;
+  border-left: 2px solid grey;
+  padding: 0 5px;
+  color: black;
+}
+
+.not-active {
+  padding: 0 5px;
+  color: black;
+}

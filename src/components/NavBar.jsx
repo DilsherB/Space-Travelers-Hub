@@ -4,6 +4,7 @@ import {
 } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import logo from "../assets/planet.png";
+import styles from "./styles/Navbar.module.css";
 
 // Navbar component
 const NaviGationbar = () => {
@@ -32,32 +33,15 @@ const NaviGationbar = () => {
                 <li key={item} className="list-group-item">
                   <NavLink
                     to={menuItems[item] === "rocket" ? "/" : menuItems[item]}
-                    className="text-decoration-none d-flex"
-                    style={({ isActive }) => {
+                    className={({ isActive }) => {
                       if (isActive) {
                         return index === 1
-                          ? {
-                            borderRight: "2px solid grey",
-                            borderLeft: "2px solid grey",
-                            padding: "0 5px",
-                            color: "grey",
-                          }
-                          : {
-                            padding: "0 5px",
-                            color: "grey",
-                          };
+                          ? ` d-flex ${styles["active-center"]}`
+                          : `d-flex ${styles.active}`;
                       }
                       return index === 1
-                        ? {
-                          borderRight: "2px solid grey",
-                          borderLeft: "2px solid grey",
-                          padding: "0 5px",
-                          color: "black",
-                        }
-                        : {
-                          padding: "0 5px",
-                          color: "black",
-                        };
+                        ? `text-decoration-none d-flex ${styles["not-active-center"]}`
+                        : `text-decoration-none d-flex ${styles["not-active"]}`;
                     }}
                   >
                     {menuItems[item]}

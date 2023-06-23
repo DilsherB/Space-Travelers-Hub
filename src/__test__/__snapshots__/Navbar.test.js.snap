@@ -1,0 +1,84 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar component render correctly 1`] = `
+<div>
+  <nav
+    class="bg-body-tertiary bg-primary navbar navbar-expand-lg navbar-light"
+    style="box-shadow: 0 1px 3px grey;"
+  >
+    <div
+      class="container"
+    >
+      <a
+        class="navbar-brand"
+        href="#home"
+      >
+        <img
+          class=""
+          src="planet.png"
+          width="40"
+        />
+         
+        <span>
+          Space Travelers' Hub
+        </span>
+      </a>
+      <div>
+        <button
+          aria-controls="responsive-navbar-nav"
+          aria-label="Toggle navigation"
+          class="navbar-toggler collapsed"
+          type="button"
+        >
+          <span
+            class="navbar-toggler-icon"
+          />
+        </button>
+        <div
+          class="navbar-collapse collapse"
+          id="responsive-navbar-nav"
+        >
+          <div
+            class="navbar-nav"
+          >
+            <li
+              class="list-group-item"
+            >
+              <a
+                aria-current="page"
+                class="text-decoration-none d-flex active"
+                href="/"
+                style="padding: 0px 5px; color: grey;"
+              >
+                rocket
+              </a>
+            </li>
+            <li
+              class="list-group-item"
+            >
+              <a
+                class="text-decoration-none d-flex"
+                href="/missions"
+                style="border-right: 2px solid grey; border-left: 2px solid grey; padding: 0px 5px; color: black;"
+              >
+                missions
+              </a>
+            </li>
+            <li
+              class="list-group-item"
+            >
+              <a
+                class="text-decoration-none d-flex"
+                href="/myProfile"
+                style="padding: 0px 5px; color: black;"
+              >
+                myProfile
+              </a>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</div>
+`;
