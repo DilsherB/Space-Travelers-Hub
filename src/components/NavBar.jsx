@@ -8,6 +8,9 @@ import styles from "./styles/Navbar.module.css";
 
 // Navbar component
 const NaviGationbar = () => {
+  console.log('====================================');
+  console.log(styles["active-center"]);
+  console.log('====================================');
   const menuItems = {
     rocket: "rocket",
     missions: "missions",
